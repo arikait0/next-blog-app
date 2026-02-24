@@ -1,7 +1,46 @@
+# アプリの名前
+
+- 概要。どのような利用者を想定した、どのようなアプリなのかを記述する。
+- 開発の背景・経緯
+  - 特に完全オリジナルのアプリ開発の場合は、記載しないともったいない。
+  - 課題発見能力、課題解決能力、人となりなどを見てもらえます。
+- VercelにデプロイしたアプリのURL
+  https://next-blog-app-git-master-saishoji-hirotos-projects.vercel.app/
+
+## 特徴と機能の説明
+
+- スクリーンショットや動画 (アニメ) を添えながら基本機能や工夫点を解説する。
+- 最低でも3個ぐらいは、特徴を箇条書きしましょう。
+- この項目の情報量が評価に大きく関係します。
+    - 特に認証をログインを必要とする画面や機能は、ここで記述しないと評価者に伝わらない。
+
+## 使用技術 (技術スタック)
+
+- 使用した言語やフレームワーク
+    - 少なくとも TypeScript と Next.js、Prisma は書いておくべき。
+    - その他、アプリを構成する主要なライブラリなどを記載する。
+    - ReReact Hook Form や zod、SWR を使っている場合は明示する。
+- 開発に使用したツールやウェブサービス
+    - VSCode、Supabase、Vercel は書いておくべき。
+- システム構成図
+
+## 開発期間・体制
+
+- 開発体制: 個人開発
+- 開発期間: 2026.01.xx ~ 2026.02.xx (約XXX時間)
+
+## 工夫した点・苦労した点
+
+- 特に、技術的な目標や挑戦を持って取り組んだ場合は記載すると良いです。
+
+## 既知の課題と今後の展望
+
+- 改良・改善したいこと。
+- 機能拡張のロードマップなど。
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
-VercelにデプロイしたアプリのURL
 https://next-blog-app-git-master-saishoji-hirotos-projects.vercel.app/
 First, run the development server:
 
