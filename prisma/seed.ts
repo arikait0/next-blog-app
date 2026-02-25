@@ -58,7 +58,7 @@ const main = async () => {
       title: "投稿4",
       content: "投稿4の本文。<br/>投稿4の本文。投稿4の本文。",
       coverImageURL:
-        "https://w1980.blob.core.windows.net/pg3/cover-img-purple.jpg",
+        "https://w1980.blob.core.windows.net/pg3/cover-img-yellow.jpg",
       categories: {
         create: [],
       },

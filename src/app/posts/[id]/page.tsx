@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "next/navigation"; // ◀ 注目
 
 import type { Post } from "@/app/_types/Post";
-import dummyPosts from "@/app/_mocks/dummyPosts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
@@ -20,18 +19,42 @@ const Page: React.FC = () => {
 
   // コンポーネントが読み込まれたときに「1回だけ」実行する処理
   useEffect(() => {
-    // 本来はウェブAPIを叩いてデータを取得するが、まずはモックデータを使用
-    // (ネットからのデータ取得をシミュレートして１秒後にデータをセットする)
-    setIsLoading(true);
-    const timer = setTimeout(() => {
-      console.log("ウェブAPIからデータを取得しました (虚言)");
-      // dummyPosts から id に一致する投稿を取得してセット
-      setPost(dummyPosts.find((post) => post.id === id) || null);
-      setIsLoading(false);
-    }, 1000);
+    const fetchPost = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch(`/api/posts/${id}`, {
+          method: "GET",
+          cache: "no-store",
+        });
 
-    // データ取得の途中でページ遷移したときにタイマーを解除する処理
-    return () => clearTimeout(timer);
+        if (!response.ok) {
+          throw new Error(`記事の取得に失敗しました (${response.status})`);
+        }
+
+        const data = await response.json();
+        // APIから返されるデータをPost型に変換
+        const post: Post = {
+          id: data.id,
+          title: data.title,
+          content: data.content,
+          createdAt: data.createdAt || new Date().toISOString(),
+          coverImage: {
+            url: data.coverImageURL,
+            width: 1365,
+            height: 768,
+          },
+          categories: data.categoryIds ? [] : [],
+        };
+        setPost(post);
+      } catch (error) {
+        console.error("記事の取得に失敗しました:", error);
+        setPost(null);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPost();
   }, [id]);
 
   // 投稿データの取得中は「Loading...」を表示

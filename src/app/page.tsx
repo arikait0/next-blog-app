@@ -1,18 +1,20 @@
 "use client";
 import { useState, useEffect } from "react";
 import type { Post } from "@/app/_types/Post";
+import type { Category } from "./_types/Category";
 import PostSummary from "@/app/_components/PostSummary";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const Page: React.FC = () => {
   const [posts, setPosts] = useState<Post[] | null>(null);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [fetchError, setFetchError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const requestUrl = "https://w1980.blob.core.windows.net/pg3/posts.json";
+        const requestUrl = "/api/posts";
         const response = await fetch(requestUrl, {
           method: "GET",
           cache: "no-store", // キャッシュを利用しない
@@ -28,6 +30,31 @@ const Page: React.FC = () => {
         );
       }
     };
+
+    const fetchCategories = async () => {   // カテゴリの一覧を取得する関数
+      try {
+        const requestUrl = "/api/categories";
+        const res = await fetch(requestUrl, {
+          method: "GET",
+          cache: "no-store",
+        });
+
+        if (!res.ok) {
+          throw new Error(
+            `カテゴリの一覧のフェッチに失敗しました: (${res.status}: ${res.statusText})`
+          );
+        }
+        const apiResBody = (await res.json()) as Category[];
+        setCategories(apiResBody);
+      } catch (error) {
+        const errorMsg =
+          error instanceof Error
+            ? error.message
+            : `予期せぬエラーが発生しました ${error}`;
+        console.error(errorMsg);
+      }
+    };
+    fetchCategories();
     fetchPosts();
   }, []);
 
