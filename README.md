@@ -15,7 +15,7 @@
 
 - メイン画面
   - 投稿された記事の一覧が表示される画面です。
-  - <img width="668" height="372" alt="image" src="https://github.com/user-attachments/assets/a8559866-81b3-4206-9f63-a279aafae2d4" />
+    <img width="642" height="429" alt="image" src="https://github.com/user-attachments/assets/22cbc1cc-d8bb-4978-9ac0-edba3f692d03" />
 
 
 - 管理画面
