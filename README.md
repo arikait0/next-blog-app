@@ -15,6 +15,8 @@
 
 - メイン画面
   - 投稿された記事の一覧が表示される画面です。
+  - <img width="668" height="372" alt="image" src="https://github.com/user-attachments/assets/a8559866-81b3-4206-9f63-a279aafae2d4" />
+
 
 - 管理画面
   - 記事やカテゴリーの作成・編集・削除ができる画面です。
