@@ -3,7 +3,7 @@
 ウェブブラウザ上でリアルタイム使用ができるブログアプリを作成しました。
 本アプリは、日々の生活の記録や感想を書き記しや、予定をメモとして保存することができます。
 - VercelにデプロイしたアプリのURL
-  https://next-blog-app-git-master-saishoji-hirotos-projects.vercel.app/
+  [https://next-blog-app-git-master-saishoji-hirotos-projects.vercel.app/](https://next-blog-app-nine-sage.vercel.app/)
 
 ## 特徴と機能の説明
  
